@@ -4,15 +4,15 @@ metadata:
 projects:
   - name: contoso-app
     source:
-      location: 'https://github.com/pittar-sandbox/dotnet-contoso-app.git'
+      location: 'https://github.com/Gitvazonline/dotnet-contoso-app.git'
       type: 'git'
   - name: contoso-gitops-admins
     source:
-      location: 'https://github.com/pittar-sandbox/dotnet-contoso-gitops-admins.git'
+      location: 'https://github.com/Gitvazonline/dotnet-contoso-gitops-admins.git'
       type: 'git'
   - name: contoso-gitops-developers
     source:
-      location: 'https://github.com/pittar-sandbox/dotnet-contoso-gitops-developers.git'
+      location: 'https://github.com/Gitvazonline/dotnet-contoso-gitops-developers.git'
       type: 'git'
 components:
   - id: redhat-developer/che-omnisharp-plugin/latest
