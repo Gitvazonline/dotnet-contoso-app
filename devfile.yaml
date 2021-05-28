@@ -31,7 +31,7 @@ components:
       - name: nuget
         containerPath: /home/jboss/.nuget
     alias: dotnet
-    image: 'registry.redhat.io/codeready-workspaces/stacks-dotnet-rhel8@sha256:ea77974b206c7d7abcad5cd32149f6bb669d3cf867135553af4d7dddd24ba9cf'
+    image: 'quay.io/pittar/crw-dotnet-stack:2.8-6'
     env:
       - name: ASPNETCORE_ENVIRONMENT
         value: "Development"
@@ -50,12 +50,6 @@ components:
       - name: SA_PASSWORD
         value: "r3dh4t1!"
 commands:
-  - name: 1. Install cli dependencies
-    actions:
-      - workdir: '${CHE_PROJECTS_ROOT}/contoso-app'
-        type: exec
-        command: dotnet tool install --global dotnet-ef
-        component: dotnet
   - name: 1. Update dependencies
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/contoso-app'
@@ -80,22 +74,3 @@ commands:
         type: exec
         command: dotnet run
         component: dotnet
-  - name: Launch .net web application in debug mode
-    actions:
-      - referenceContent: |
-          {
-            "version": "0.2.0",
-              "configurations": [
-                 {
-                    "type": "netcoredbg",
-                    "request": "launch",
-                    "program": "/projects/contoso-app/bin/Debug/netcoreapp3.1/web.dll",
-                    "args": [],
-                    "name": ".NET Core Launch (console)",
-                    "stopAtEntry": true,
-                    "preLaunchTask": "2. Build",
-                    "console": "internalConsole"
-                  }
-              ]
-          }
-        type: vscode-launch
